@@ -1,0 +1,16 @@
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+*.test
+
+*.out
+
+vendor/
+
+ocb_darwin
+ocb_linux
+
+generated/

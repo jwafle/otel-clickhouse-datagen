@@ -1,0 +1,15 @@
+---
+version: '1'
+services:
+  clickhouse-server:
+    image: clickhouse/clickhouse-server
+    container_name: clickhouse
+    ulimits:
+      nofile:
+        soft: 262144
+        hard: 262144
+    ports:
+      - "18123:8123"
+      - "19000:9000"
+  opentelemetry-datagen-collector:
+    image:
