@@ -11,5 +11,18 @@ services:
     ports:
       - "18123:8123"
       - "19000:9000"
-  opentelemetry-datagen-collector:
-    image:
+
+  otel-clickhouse-datagen:
+    build: ./
+    container_name: otel-clickhouse-datagen
+    ports:
+      - "8088:8088"
+      - "8888:8888"
+      - "13133:13133"
+    volumes:
+      - ./config.yml:/etc/config.yml
+      - ./generator-config.yml:/etc/generator-config.yml
+    environment:
+      - TOPO_FILE=
+    depends_on:
+      - clickhouse-server
